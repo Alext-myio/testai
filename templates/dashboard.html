@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #333; margin-bottom: 20px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .nav { margin-bottom: 20px; }
+        .nav a { margin-right: 15px; color: #667eea; text-decoration: none; }
+        a.btn { padding: 10px 20px; background: #667eea; color: white; text-decoration: none; border-radius: 5px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/dashboard">Главная</a>
+            {% if session.role == 'admin' %}
+            <a href="/users">Пользователи</a>
+            {% endif %}
+            <a href="/logout">Выйти</a>
+        </div>
+        <div class="card">
+            <h1>Добро пожаловать, {{ session.username }}!</h1>
+            <p>Ваша роль: {{ session.role }}</p>
+        </div>
+    </div>
+</body>
+</html>
