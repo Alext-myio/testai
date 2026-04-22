@@ -1,0 +1,9 @@
+*.key
+*.pem
+*.env
+credentials.json
+secrets.json
+config.json
+token*
+pass*
+*.log
