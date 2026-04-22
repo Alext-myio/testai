@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обзор IP домофонов Hikvision</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .product-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-color: #3498db;
+        }
+        
+        .product-card.featured {
+            border-color: #27ae60;
+            background: #f0fff4;
+        }
+        
+        .product-card.featured::before {
+            content: "★ Рекомендовано";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #27ae60;
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .product-name {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        .product-price {
+            font-size: 1.5em;
+            color: #27ae60;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        
+        .specs-table th,
+        .specs-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .specs-table th {
+            background: #3498db;
+            color: white;
+            width: 40%;
+            font-weight: 600;
+        }
+        
+        .specs-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        .specs-table tr:hover {
+            background: #e8f4f8;
+        }
+        
+        .link-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .link-btn:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #1c5980 100%);
+            transform: scale(1.05);
+        }
+        
+        .package-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .package-section h2 {
+            color: white;
+            border-bottom-color: rgba(255,255,255,0.5);
+        }
+        
+        .package-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .package-card .product-price {
+            color: #ffd700;
+        }
+        
+        .package-contents {
+            background: rgba(255,255,255,0.95);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            color: #333;
+        }
+        
+        .package-contents ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .package-contents li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .package-contents li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .tech-note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        
+        .tech-note h3 {
+            color: #1565c0;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .comparison-wrapper {
+            overflow-x: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>IP Домофоны Hikvision</h1>
+            <p>Обзор моделей для покупки на Ozon (POE, без Wi-Fi)</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Актуально на 2024 год</p>
+        </header>
+
+        <div class="notice">
+            <strong>Внимание:</strong> Ссылки на Ozon необходимо проверить и обновить самостоятельно, так как ассортимент и цены меняются. Данная страница содержит характеристики типичных моделей Hikvision.
+        </div>
+
+        <div class="tech-note">
+            <h3>🔌 Особенности POE подключения</h3>
+            <p>Все представленные модели поддерживают Power over Ethernet (PoE) по стандарту 802.3af/at. Это означает:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Один кабель Ethernet обеспечивает и питание, и передачу данных</li>
+                <li>Не требуется дополнительный блок питания для устройств</li>
+                <li>Максимальная длина кабеля: 100 метров</li>
+                <li>Требуется PoE инжектор или PoE коммутатор</li>
+                <li>Wi-Fi не используется, только проводное подключение</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>☎️ IP Панели вызова</h2>
+            <div class="products-grid">
+                <div class="product-card featured">
+                    <div class="product-name">Hikvision DS-KH8350-WTE1</div>
+                    <div class="product-price">~18 000 - 22 000 ₽</div>
+                    <p style="margin: 10px 0;">Сенсорная уличная панель с NFC и подсветкой</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KH8350-WTE1</td>
+                        </tr>
+                        <tr>
+                            <th>Экран</th>
+                            <td>5" IPS сенсорный</td>
+                        </tr>
+                        <tr>
+                            <th>Разрешение</th>
+                            <td>1920×1080 Full HD</td>
+                        </tr>
+                        <tr>
+                            <th>Камера</th>
+                            <td>2 Мп, 1920×1080</td>
+                        </tr>
+                        <tr>
+                            <th>Ночная съемка</th>
+                            <td>ИК подсветка до 3м</td>
+                        </tr>
+                        <tr>
+                            <th>Аудио</th>
+                            <td>Громкоговоритель + микрофон</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af/at ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Dahua</th>
+                            <td>NFC, RFID</td>
+                        </tr>
+                        <tr>
+                            <th>Защита</th>
+                            <td>IP66, вандалозащита</td>
+                        </tr>
+                        <tr>
+                            <th>Температура</th>
+                            <td>-30°C ~ +60°C</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KH8350-WTE1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Hikvision DS-KV8113-WME1</div>
+                    <div class="product-price">~14 000 - 17 000 ₽</div>
+                    <p style="margin: 10px 0;">Базовая модульная панель с возможностью расширения</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KV8113-WME1</td>
+                        </tr>
+                        <tr>
+                            <th>Тип</th>
+                            <td>Модульная (базовый модуль)</td>
+                        </tr>
+                        <tr>
+                            <th>Камера</th>
+                            <td>2 Мп, 1920×1080</td>
+                        </tr>
+                        <tr>
+                            <th>Ночная съемка</th>
+                            <td>ИК подсветка</td>
+                        </tr>
+                        <tr>
+                            <th>Кнопки</th>
+                            <td>1 кнопка вызова + подсветка</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af/at ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Защита</th>
+                            <td>IP66, вандалозащита</td>
+                        </tr>
+                        <tr>
+                            <th>Температура</th>
+                            <td>-30°C ~ +60°C</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                        <tr>
+                            <th>Особенности</th>
+                            <td>Модульная структура, легко расширять</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KV8113-WME1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Hikvision DS-KV8203-WME1</div>
+                    <div class="product-price">~16 000 - 19 000 ₽</div>
+                    <p style="margin: 10px 0;">Панель с 2 кнопками вызова для двух абонентов</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KV8203-WME1</td>
+                        </tr>
+                        <tr>
+                            <th>Тип</th>
+                            <td>Модульная, 2 кнопки</td>
+                        </tr>
+                        <tr>
+                            <th>Камера</th>
+                            <td>2 Мп, 1920×1080</td>
+                        </tr>
+                        <tr>
+                            <th>Ночная съемка</th>
+                            <td>ИК подсветка</td>
+                        </tr>
+                        <tr>
+                            <th>Кнопки</th>
+                            <td>2 кнопки вызова</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af/at ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Защита</th>
+                            <td>IP66, вандалозащита</td>
+                        </tr>
+                        <tr>
+                            <th>Температура</th>
+                            <td>-30°C ~ +60°C</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                        <tr>
+                            <th>Особенности</th>
+                            <td>Идеально для двухквартирных домов</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KV8203-WME1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Hikvision DS-KV6113-WPE1</div>
+                    <div class="product-price">~12 000 - 15 000 ₽</div>
+                    <p style="margin: 10px 0;">Компактная панель с одним модулем</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KV6113-WPE1</td>
+                        </tr>
+                        <tr>
+                            <th>Тип</th>
+                            <td>Компактная, базовый модуль</td>
+                        </tr>
+                        <tr>
+                            <th>Камера</th>
+                            <td>2 Мп, 1920×1080</td>
+                        </tr>
+                        <tr>
+                            <th>Ночная съемка</th>
+                            <td>ИК подсветка</td>
+                        </tr>
+                        <tr>
+                            <th>Кнопки</th>
+                            <td>1 кнопка вызова</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Защита</th>
+                            <td>IP65</td>
+                        </tr>
+                        <tr>
+                            <th>Температура</th>
+                            <td>-20°C ~ +55°C</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                        <tr>
+                            <th>Особенности</th>
+                            <td>Экономичное решение</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KV6113-WPE1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📺 IP Внутренние мониторы</h2>
+            <div class="products-grid">
+                <div class="product-card featured">
+                    <div class="product-name">Hikvision DS-KH6320-WTE1</div>
+                    <div class="product-price">~9 000 - 12 000 ₽</div>
+                    <p style="margin: 10px 0;">7" сенсорный монитор с высоким разрешением</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KH6320-WTE1</td>
+                        </tr>
+                        <tr>
+                            <th>Экран</th>
+                            <td>7" IPS сенсорный</td>
+                        </tr>
+                        <tr>
+                            <th>Разрешение</th>
+                            <td>1024×600</td>
+                        </tr>
+                        <tr>
+                            <th>Видеозвонки</th>
+                            <td>До 256 устройств</td>
+                        </tr>
+                        <tr>
+                            <th>Аудио</th>
+                            <td>Громкоговоритель + микрофон</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Функции</th>
+                            <td>Ответ, открывание двери, просмотр</td>
+                        </tr>
+                        <tr>
+                            <th>Фото/Видео</th>
+                            <td>Встроенное хранилище</td>
+                        </tr>
+                        <tr>
+                            <th>Установка</th>
+                            <td>Настенный монтаж</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                        <tr>
+                            <th>Размеры</th>
+                            <td>170×115×25 мм</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KH6320-WTE1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Hikvision DS-KH6310-WTE1</div>
+                    <div class="product-price">~7 000 - 9 000 ₽</div>
+                    <p style="margin: 10px 0;">5" монитор — компактное решение</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KH6310-WTE1</td>
+                        </tr>
+                        <tr>
+                            <th>Экран</th>
+                            <td>5" сенсорный</td>
+                        </tr>
+                        <tr>
+                            <th>Разрешение</th>
+                            <td>800×480</td>
+                        </tr>
+                        <tr>
+                            <th>Видеозвонки</th>
+                            <td>До 256 устройств</td>
+                        </tr>
+                        <tr>
+                            <th>Аудио</th>
+                            <td>Громкоговоритель + микрофон</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Функции</th>
+                            <td>Ответ, открывание двери, прослушивание</td>
+                        </tr>
+                        <tr>
+                            <th>Установка</th>
+                            <td>Настенный монтаж</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                        <tr>
+                            <th>Размеры</th>
+                            <td>145×90×23 мм</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KH6310-WTE1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Hikvision DS-KH8350-WTE1 (монитор)</div>
+                    <div class="product-price">~13 000 - 16 000 ₽</div>
+                    <p style="margin: 10px 0;">10" монитор премиум-класса с большим экраном</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KH8350-WTE1</td>
+                        </tr>
+                        <tr>
+                            <th>Экран</th>
+                            <td>10.1" IPS сенсорный</td>
+                        </tr>
+                        <tr>
+                            <th>Разрешение</th>
+                            <td>1280×800</td>
+                        </tr>
+                        <tr>
+                            <th>Видеозвонки</th>
+                            <td>До 256 устройств</td>
+                        </tr>
+                        <tr>
+                            <th>Аудио</th>
+                            <td>Высококачественный громкоговоритель</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af/at ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Функции</th>
+                            <td>Видеозвонки, открытие, журнал событий</td>
+                        </tr>
+                        <tr>
+                            <th>Дополнительно</th>
+                            <td>Поддержка нескольких панелей</td>
+                        </tr>
+                        <tr>
+                            <th>Установка</th>
+                            <td>Настенный монтаж</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KH8350-WTE1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">Hikvision DS-KH6350-WTE1</div>
+                    <div class="product-price">~10 000 - 13 000 ₽</div>
+                    <p style="margin: 10px 0;">8" монитор с оптимальным соотношением цена/качество</p>
+                    
+                    <table class="specs-table">
+                        <tr>
+                            <th>Модель</th>
+                            <td>DS-KH6350-WTE1</td>
+                        </tr>
+                        <tr>
+                            <th>Экран</th>
+                            <td>8" IPS сенсорный</td>
+                        </tr>
+                        <tr>
+                            <th>Разрешение</th>
+                            <td>1280×800</td>
+                        </tr>
+                        <tr>
+                            <th>Видеозвонки</th>
+                            <td>До 256 устройств</td>
+                        </tr>
+                        <tr>
+                            <th>Аудио</th>
+                            <td>Громкоговоритель + микрофон</td>
+                        </tr>
+                        <tr>
+                            <th>Коммуникация</th>
+                            <td>10/100 Mbps Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>POE</th>
+                            <td>802.3af ✓</td>
+                        </tr>
+                        <tr>
+                            <th>Функции</th>
+                            <td>Ответ, открывание, журнал звонков</td>
+                        </tr>
+                        <tr>
+                            <th>Фото/Видео</th>
+                            <td>Сохранение изображений</td>
+                        </tr>
+                        <tr>
+                            <th>Установка</th>
+                            <td>Настенный монтаж</td>
+                        </tr>
+                        <tr>
+                            <th>Питание</th>
+                            <td>POE или 12V DC</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+DS-KH6350-WTE1" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section package-section">
+            <h2>🎁 Готовые комплекты</h2>
+            <div class="products-grid">
+                <div class="product-card package-card">
+                    <div class="product-name">Комплект: 1 панель + 1 монитор (DS-KV8113 + DS-KH6320)</div>
+                    <div class="product-price">~22 000 - 27 000 ₽</div>
+                    <p style="margin: 10px 0;">Базовый комплект для одной квартиры</p>
+                    
+                    <div class="package-contents">
+                        <strong>В комплекте:</strong>
+                        <ul>
+                            <li>IP панель вызова DS-KV8113-WME1</li>
+                            <li>IP монитор DS-KH6320-WTE1 7"</li>
+                            <li>Монтажные аксессуары</li>
+                            <li>Инструкции</li>
+                        </ul>
+                        <p style="margin-top: 10px; font-size: 0.9em;"><em>Дополнительно: PoE инжектор (не в комплекте)</em></p>
+                    </div>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+комплект+домофон+панель+монитор" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card package-card featured">
+                    <div class="product-name">Комплект: 1 панель + 2 монитора (DS-KV8113 + 2×DS-KH6320)</div>
+                    <div class="product-price">~30 000 - 36 000 ₽</div>
+                    <p style="margin: 10px 0;">Для дома с несколькими входами или двумя комнатами</p>
+                    
+                    <div class="package-contents">
+                        <strong>В комплекте:</strong>
+                        <ul>
+                            <li>IP панель вызова DS-KV8113-WME1</li>
+                            <li>IP монитор DS-KH6320-WTE1 7" (x2)</li>
+                            <li>Монтажные аксессуары</li>
+                            <li>Инструкции</li>
+                        </ul>
+                        <p style="margin-top: 10px; font-size: 0.9em;"><em>Дополнительно: PoE сплиттер для второго монитора</em></p>
+                    </div>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+комплект+домофон+2+монитора" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card package-card">
+                    <div class="product-name">Комплект: 1 панель + 1 монитор (DS-KV6113 + DS-KH6310)</div>
+                    <div class="product-price">~18 000 - 22 000 ₽</div>
+                    <p style="margin: 10px 0;">Эконом-комплект для небольших объектов</p>
+                    
+                    <div class="package-contents">
+                        <strong>В комплекте:</strong>
+                        <ul>
+                            <li>IP панель вызова DS-KV6113-WPE1</li>
+                            <li>IP монитор DS-KH6310-WTE1 5"</li>
+                            <li>Монтажные аксессуары</li>
+                            <li>Инструкции</li>
+                        </ul>
+                        <p style="margin-top: 10px; font-size: 0.9em;"><em>Дополнительно: PoE инжектор (не в комплекте)</em></p>
+                    </div>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+комплект+домофон+эконом" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+
+                <div class="product-card package-card">
+                    <div class="product-name">Комплект: 2 панели + 1 монитор (DS-KV8203 + DS-KH6350)</div>
+                    <div class="product-price">~26 000 - 31 000 ₽</div>
+                    <p style="margin: 10px 0;">Для двухквартирного дома или офиса</p>
+                    
+                    <div class="package-contents">
+                        <strong>В комплекте:</strong>
+                        <ul>
+                            <li>IP панель вызова DS-KV8203-WME1 (2 кнопки)</li>
+                            <li>IP монитор DS-KH6350-WTE1 8"</li>
+                            <li>Монтажные аксессуары</li>
+                            <li>Инструкции</li>
+                        </ul>
+                        <p style="margin-top: 10px; font-size: 0.9em;"><em>Возможность настройки двух независимых входов</em></p>
+                    </div>
+
+                    <a href="https://www.ozon.ru/search/?text=hikvision+комплект+домофон+2+кнопки" target="_blank" class="link-btn">Найти на Ozon →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔧 Дополнительное оборудование</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-name">PoE Инжектор</div>
+                    <div class="product-price">~1 500 - 3 000 ₽</div>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Стандарт</th>
+                            <td>802.3af/at</td>
+                        </tr>
+                        <tr>
+                            <th>Мощность</th>
+                            <td>30W (класс 4)</td>
+                        </tr>
+                        <tr>
+                            <th>Порт</th>
+                            <td>1×10/100 Mbps</td>
+                        </tr>
+                        <tr>
+                            <th>Комплект</th>
+                            <td>Инжектор + кабель</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">PoE Сплиттер</div>
+                    <div class="product-price">~800 - 1 500 ₽</div>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Тип</th>
+                            <td>PoE to DC + Data</td>
+                        </tr>
+                        <tr>
+                            <th>Выход</th>
+                            <td>12V DC + Ethernet</td>
+                        </tr>
+                        <tr>
+                            <th>Мощность</th>
+                            <td>До 15W</td>
+                        </tr>
+                        <tr>
+                            <th>Применение</th>
+                            <td>Для устройств без PoE</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-name">PoE Коммутатор (4 порта)</div>
+                    <div class="product-price">~4 000 - 7 000 ₽</div>
+                    <table class="specs-table">
+                        <tr>
+                            <th>Порты</th>
+                            <td>4×PoE + 2×Uplink</td>
+                        </tr>
+                        <tr>
+                            <th>Стандарт</th>
+                            <td>802.3af/at</td>
+                        </tr>
+                        <tr>
+                            <th>Мощность</th>
+                            <td>60W общая</td>
+                        </tr>
+                        <tr>
+                            <th>Скорость</th>
+                            <td>10/100 Mbps</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Сравнительная таблица</h2>
+            <div class="comparison-wrapper">
+                <table class="specs-table" style="font-size: 0.9em;">
+                    <thead>
+                        <tr style="background: #2c3e50; color: white;">
+                            <th>Модель</th>
+                            <th>Тип</th>
+                            <th>Экран</th>
+                            <th>Камера</th>
+                            <th>POE</th>
+                            <th>Защита</th>
+                            <th>Цена (ориент.)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DS-KH8350-WTE1</td>
+                            <td>Панель/Монитор</td>
+                            <td>5"/10"</td>
+                            <td>2 Мп</td>
+                            <td>802.3af/at</td>
+                            <td>IP66</td>
+                            <td>18-22K / 13-16K</td>
+                        </tr>
+                        <tr>
+                            <td>DS-KV8113-WME1</td>
+                            <td>Панель (1 кнопка)</td>
+                            <td>-</td>
+                            <td>2 Мп</td>
+                            <td>802.3af/at</td>
+                            <td>IP66</td>
+                            <td>14-17K</td>
+                        </tr>
+                        <tr>
+                            <td>DS-KV8203-WME1</td>
+                            <td>Панель (2 кнопки)</td>
+                            <td>-</td>
+                            <td>2 Мп</td>
+                            <td>802.3af/at</td>
+                            <td>IP66</td>
+                            <td>16-19K</td>
+                        </tr>
+                        <tr>
+                            <td>DS-KV6113-WPE1</td>
+                            <td>Панель (компл.)</td>
+                            <td>-</td>
+                            <td>2 Мп</td>
+                            <td>802.3af</td>
+                            <td>IP65</td>
+                            <td>12-15K</td>
+                        </tr>
+                        <tr>
+                            <td>DS-KH6320-WTE1</td>
+                            <td>Монитор 7"</td>
+                            <td>7" IPS</td>
+                            <td>-</td>
+                            <td>802.3af</td>
+                            <td>-</td>
+                            <td>9-12K</td>
+                        </tr>
+                        <tr>
+                            <td>DS-KH6310-WTE1</td>
+                            <td>Монитор 5"</td>
+                            <td>5" сенсорный</td>
+                            <td>-</td>
+                            <td>802.3af</td>
+                            <td>-</td>
+                            <td>7-9K</td>
+                        </tr>
+                        <tr>
+                            <td>DS-KH8350-WTE1</td>
+                            <td>Монитор 10"</td>
+                            <td>10.1" IPS</td>
+                            <td>-</td>
+                            <td>802.3af/at</td>
+                            <td>-</td>
+                            <td>13-16K</td>
+                        </tr>
+                        <tr>
+                            <td>DS-KH6350-WTE1</td>
+                            <td>Монитор 8"</td>
+                            <td>8" IPS</td>
+                            <td>-</td>
+                            <td>802.3af</td>
+                            <td>-</td>
+                            <td>10-13K</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>⚙️ Рекомендации по установке</h2>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 10px;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">Схема подключения POE</h3>
+                <div style="background: white; padding: 15px; border-radius: 5px; margin: 15px 0;">
+                    <strong>Необходимое оборудование:</strong>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>POE инжектор или POE коммутатор</li>
+                        <li>Cат5e или Cat6 кабели (до 100м)</li>
+                        <li>Маршрутизатор (опционально)</li>
+                        <li>Коммутационная панель (для систем с несколькими мониторами)</li>
+                    </ul>
+                </div>
+
+                <h3 style="color: #2c3e50; margin: 25px 0 15px;">Важные моменты</h3>
+                <ul style="margin-left: 20px;">
+                    <li style="margin: 10px 0;"><strong>Расстояние:</strong> Максимальная длина кабеля Cat5e/Cat6 — 100 метров от инжектора до устройства</li>
+                    <li style="margin: 10px 0;"><strong>Кабель:</strong> Используйте качественный уличный кабель для наружной прокладки</li>
+                    <li style="margin: 10px 0;"><strong>POE коммутатор:</strong> Для нескольких устройств лучше использовать коммутатор с общей мощностью 60W+</li>
+                    <li style="margin: 10px 0;"><strong>Настройка:</strong> Все устройства Hikvision поддерживают работу в одной сети без сложной настройки</li>
+                    <li style="margin: 10px 0;"><strong>Wi-Fi:</strong> Данные модели НЕ поддерживают Wi-Fi, только проводное Ethernet соединение</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Обзор IP домофонов Hikvision</strong></p>
+            <p>Актуальность цен и наличия проверяйте на Ozon</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Последнее обновление: April 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
