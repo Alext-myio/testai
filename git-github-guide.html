@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git и GitHub - Краткое руководство</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #333; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        ul { padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Git и GitHub — Краткое руководство</h1>
+
+    <h2>Основные команды Git</h2>
+    <ul>
+        <li><code>git init</code> — инициализация репозитория</li>
+        <li><code>git clone URL</code> — клонирование репозитория</li>
+        <li><code>git status</code> — проверить статус</li>
+        <li><code>git add файл</code> — добавить файл в индекс</li>
+        <li><code>git add .</code> — добавить все изменённые файлы</li>
+        <li><code>git commit -m "сообщение"</code> — создать коммит</li>
+        <li><code>git push</code> — отправить на удалённый репозиторий</li>
+        <li><code>git pull</code> — получить изменения</li>
+        <li><code>git log</code> — история коммитов</li>
+        <li><code>git diff</code> — показать изменения</li>
+    </ul>
+
+    <h2>Работа с ветками</h2>
+    <ul>
+        <li><code>git branch</code> — список веток</li>
+        <li><code>git branch имя</code> — создать ветку</li>
+        <li><code>git checkout имя</code> — переключиться на ветку</li>
+        <li><code>git checkout -b имя</code> — создать и переключиться</li>
+        <li><code>git merge имя</code> — слить ветку</li>
+    </ul>
+
+    <h2>Отмена изменений</h2>
+    <ul>
+        <li><code>git checkout -- файл</code> — отменить изменения в файле</li>
+        <li><code>git reset --hard HEAD~1</code> — откатиться на 1 коммит назад</li>
+    </ul>
+
+    <h2>Работа с GitHub</h2>
+    <ol>
+        <li>Создать аккаунт на <a href="https://github.com">github.com</a></li>
+        <li>Создать новый репозиторий на сайте</li>
+        <li>Связать локальный репозиторий с удалённым:
+            <pre>git remote add origin https://github.com/пользователь/репозиторий.git</pre>
+        </li>
+        <li>Отправить код: <code>git push -u origin master</code></li>
+    </ol>
+
+    <h2>Полезные советы</h2>
+    <ul>
+        <li>Всегда пишите понятные сообщения коммитов</li>
+        <li>Делайте коммиты часто и с небольшими изменениями</li>
+        <li>Используйте файл <code>.gitignore</code> для исключения файлов</li>
+        <li>Перед пушем делайте <code>git pull</code></li>
+    </ul>
+</body>
+</html>
